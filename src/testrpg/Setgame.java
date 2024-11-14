@@ -14,6 +14,16 @@ public class Setgame {
 	
 	
 	
+	Setgame(){}
+	
+	public void init() {
+		stageList.put("MANAGER",new StageManager());
+		stageList.put("LOBBY", new StageLobby());
+		stageList.put("BATTLE", new StageBattle());
+		stageList.put("SETTING", new StageSetting());
+		nextStage = "TITLE";	
+	}
+	
 	
 	
 }
