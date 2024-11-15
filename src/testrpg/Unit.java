@@ -2,22 +2,44 @@ package testrpg;
 
 abstract public class Unit {
 
-	String name;
-	int hp;
-	int maxHp;
-	int mp;
-	int shield;
-	int power;
-	int skill;
+	private String name;
+	private int hp;
+	private int maxHp;
+	private int mp;
+	private int shield;
+	private int power;
+	private int skill;
+	private boolean party;
 
-	public Unit() {
-	}
-
+    public Unit (){}
+    
+	
 	public Unit(String name, int hp, int maxHp, int mp, int shield, int power, int skill) {
 		super();
 		this.name = name;
 		this.hp = hp;
 		this.maxHp = maxHp;
+		this.mp = mp;
+		this.shield = shield;
+		this.power = power;
+		this.skill = skill;
+	}
+	
+	public Unit(String name, int hp,  int mp, int shield, int power, int skill, boolean party) {
+		super();
+		this.name = name;
+		this.hp = hp;
+		this.mp = mp;
+		this.shield = shield;
+		this.power = power;
+		this.skill = skill;
+		this.party = party;
+	}
+	
+	public Unit(String name, int hp,  int mp, int shield, int power, int skill) {
+		super();
+		this.name = name;
+		this.hp = hp;
 		this.mp = mp;
 		this.shield = shield;
 		this.power = power;

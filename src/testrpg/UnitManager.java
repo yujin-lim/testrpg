@@ -53,11 +53,6 @@ public class UnitManager  {
 	}
 
 
-	public void Guild() {
-		// TODO Auto-generated method stub
-		
-	}
-	
 	
 	
 	
