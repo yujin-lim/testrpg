@@ -23,6 +23,11 @@ public class Setgame {
 		stageList.put("SETTING", new StageSetting());
 		nextStage = "TITLE";	
 	}
+
+	public boolean changeStage() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	
 	

@@ -40,5 +40,19 @@ public class Player extends Unit{
 		
 	}
 
+
+
+	public void printAllUnit() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	public void printAllUnitItem() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }

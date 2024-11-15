@@ -1,14 +1,19 @@
 package testrpg;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Random;
 import java.util.Vector;
 
 public class Guild {
-	
+	private Random  ran = new Random();
+	private static final String LOBBY = null;
 	private StringBuffer buffer = new StringBuffer ();
 	private BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
-	
+    private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    
 
 	private final int Party_Size = 2;
 	public Vector<Player>guildlist = new Vector<>();
@@ -64,14 +69,47 @@ public class Guild {
 	}
 	
 	public void printGuildMenu() {
-		while(true) {
+		while (true) {
 			buffer.append("======길드메뉴=====");
 			buffer.append("[1.길드원 추가] \t\t [2.길드원 삭제] \t\t [3. 길드 목록]");
 			buffer.append("[4.파티원 교체] \t\t [5. 종료] ");
 			buffer.append("==================");
-			
-			
+
+			String input = buffer.toString();
+			if (input.equals("길드원 추가")) {
+				addGuild();
+			} else if (input.equals("길드원 삭제")) {
+				removeGuild();
+			} else if (input.equals("길드 목록")) {
+				printAllUnit();
+			} else if (input.equals("파티원 교체")) {
+				partyChange();
+			} else if (input.equals("종료")) {
+				return;
+			}
 		}
+	}
+	
+	public void addGuild() {
+		
+		if(Player.money < 60000) 
+			return;
+		String []name1 = { "김","이","박","최","정","강","조","윤"};
+		String []name2 = { "민","서","도","예","지","하","시","주"};
+		String []name3 = { "준","윤","주","유","호","원","우","현"};
+		
+		String name = name1[ran.nextInt(name1.length)];
+		name += name2[ran.nextInt(name2.length)];
+		name += name3[ran.nextInt(name3.length)];
+		
+		int rNum = ran.nextInt(2)+8;
+		int hp = rNum * 5;
+		int mp = rNum * 5;
+		int shield =  rNum * 5;
+		int power = rNum * 5;
+		int skill = 2;
+		
+		Player temp = new Player(name, hp, mp, shield, power, skill, true);
 		
 	}
 	
