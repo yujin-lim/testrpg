@@ -10,6 +10,9 @@ abstract public class Unit {
 	private int power;
 	private int skill;
 	boolean party;
+	private int armor;
+	private int weapon;
+	private int potion;
 
     public Unit (){}
     
@@ -45,6 +48,14 @@ abstract public class Unit {
 		this.power = power;
 		this.skill = skill;
 	}
+	
+	public Unit(int armor, int weapon, int potion) {
+		this.armor = armor;
+		this.weapon = weapon;
+		this.potion = potion;
+	}
+	
+	
 
 	public String getName() {
 		return name;

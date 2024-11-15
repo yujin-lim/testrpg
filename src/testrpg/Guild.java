@@ -42,7 +42,7 @@ public class Guild {
 		return guildlist.get(num);
 	}
 	
-	public void printAllUnit () {
+	public void printAllGuildUnit () {
 		buffer.append("==================");
 		buffer.append("[골드 : " + Player.money +  " 골드 ");
 		buffer.append("=======길드원========");
@@ -52,7 +52,7 @@ public class Guild {
 			buffer.append("[체력  : " + guildlist.get(i).getHp() + "]");
 			buffer.append("[마력  : " + guildlist.get(i).getMp() + "]");
 			buffer.append("[방어력 : " + guildlist.get(i).getShield() + "]");
-			buffer.append("[파워력 : " + guildlist.get(i).getPower()+ "]");
+			buffer.append("[공격력 : " + guildlist.get(i).getPower()+ "]");
 			buffer.append("[스킬 : " + guildlist.get(i).getSkill() + "]");
 			buffer.append("[파티중 : " + guildlist.get(i).party + "]");
 			buffer.append("==================");
@@ -81,7 +81,7 @@ public class Guild {
 			} else if (input.equals("길드원 삭제")) {
 				removeGuild();
 			} else if (input.equals("길드 목록")) {
-				printAllUnit();
+				printAllGuildUnit();
 			} else if (input.equals("파티원 교체")) {
 				partyChange();
 			} else if (input.equals("종료")) {
@@ -110,10 +110,94 @@ public class Guild {
 		int skill = 2;
 		
 		Player temp = new Player(name, hp, mp, shield, power, skill, true);
-		
+		buffer.append("=======길드원========");
+		buffer.append("[이름   : " + name + "]");
+		buffer.append("[체력   : " + hp + "]");
+		buffer.append("[마력   : " + mp + "]");
+		buffer.append("[방어력  : " + shield + "]");
+		buffer.append("[공격력  : " + power + "]");
+		buffer.append("[스킬   : " + skill + "]");
+		buffer.append("==길드원을 추가되었습니다.==");
+		buffer.append("=====================");
+
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		guildlist.add(temp);
+		Player.money -= 60000;
+
 	}
 	
+	public void removeGuild() {
+		printAllGuildUnit();
+		buffer.append("제거할 길드원 이름을 입력해주세요");
+
+		String input = buffer.toString();
+
+		buffer.append("=======길드원========");
+		for (int i = 0; i < guildlist.size(); i++) {
+			if (input.equals(guildlist.get(i).getName())) {
+				buffer.append("[이름 :" + guildlist.get(i).getName() + "]");
+			}
+			buffer.append("길드원을 제거했습니다.");
+			buffer.append("=====================");
+			guildlist.remove(input);
+		}
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 	
-	
-	
+	public void printParty() {
+		buffer.append("=======파티원========");
+		for (int i = 0; i < Party_Size; i++) {
+			buffer.append("[" + (i + 1) + "번]");
+			buffer.append("[이름  : " + partyList[i].getName() + "]");
+			buffer.append("[체력  : " + partyList[i].getHp() + "]");
+			buffer.append("[마력  : " + partyList[i].getMp() + "]");
+			buffer.append("[방어력 : " + partyList[i].getShield() + "]");
+			buffer.append("[공격력 : " + partyList[i].getPower() + "]");
+			buffer.append("[스킬 : " + partyList[i].getSkill() + "]");
+			buffer.append("[파티중 : " + partyList[i].party + "]");
+			buffer.append("==================");
+		}
+		buffer.append("==================");
+	}
+
+	public void partyChange() {
+		printParty();
+		buffer.append("교체당한 파티원 이름을 입력해주세요");
+		String input = buffer.toString();
+
+		for (int i = 0; i < Party_Size; i++) {
+			if (input.equals(partyList[i].getName()));
+			partyList[i].party = false;
+		}
+
+		buffer.append("교체된 파티원 이름을 입력해주세요");
+		input = buffer.toString();
+
+		for (int i = 0; i < Party_Size; i++) {
+			if (input.equals(partyList[i].getName()));
+			partyList[i].party = true;
+		}
+
+		int n = 0;
+		for (int i = 0; i < guildlist.size(); i++) {
+			if (guildlist.get(i).party == true) {
+				partyList[n] = guildlist.get(i);
+				n += 1;
+			}
+		}
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 }
