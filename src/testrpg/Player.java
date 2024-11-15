@@ -29,9 +29,8 @@ public class Player extends Unit{
 		guild.SetGuild();
 	}
 
-	public static void Guild() {
-		// TODO Auto-generated method stub
-		
+	public void printGuildMenu() {
+		guild.printGuildMenu();
 	}
 
 	@Override
