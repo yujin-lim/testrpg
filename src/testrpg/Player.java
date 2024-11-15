@@ -8,6 +8,7 @@ public class Player extends Unit{
 	
 	public Player(){}
 	
+	
 
 	public Player(String name, int hp, int mp, int shield, int power, int skill) {
 		super(name, hp, mp, shield, power, skill);
@@ -19,7 +20,9 @@ public class Player extends Unit{
 
 	
 
-	public 
+	public static void skill() {
+		
+	}
 
 	public static void init() {
 		money = 100000;

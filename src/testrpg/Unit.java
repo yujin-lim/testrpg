@@ -9,7 +9,7 @@ abstract public class Unit {
 	private int shield;
 	private int power;
 	private int skill;
-	private boolean party;
+	boolean party;
 
     public Unit (){}
     
