@@ -39,6 +39,24 @@ public class UnitManager  {
 			
 		}
 	}
+
+
+	public void Guild() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void Inventory() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void Guild() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	
