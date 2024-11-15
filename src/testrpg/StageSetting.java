@@ -46,22 +46,15 @@ public class StageSetting extends Stage {
 				buffer.append("종료합니다.");
 				return false;
 			}
-			
 		}
-
-		return false;
-	}
+	}	
 	
-	
-
 	@Override
 	public void Init() {
 		um = UnitManager .instance;
 		Shopping = new Shopping();
 		File =new File();
 		
-		
-		
+			
 	}
-
 }
